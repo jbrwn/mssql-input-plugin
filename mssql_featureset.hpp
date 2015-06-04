@@ -1,7 +1,7 @@
 #ifndef MSSQL_FEATURESET_HPP
 #define MSSQL_FEATURESET_HPP
 
-#include <mssql_statement.hpp>
+#include "mssql_statement.hpp"
 
 // mapnik
 #include <mapnik/datasource.hpp>

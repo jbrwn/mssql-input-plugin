@@ -56,7 +56,7 @@ mssql_datasource::mssql_datasource(parameters const& params)
     if (encoding_.empty())
     {
 #ifdef _WINDOWS
-        encoding_ = "Windows-1252"
+		encoding_ = "Windows-1252";
 #endif // _WINDOWS
         encoding_ = "utf-8";
     }
