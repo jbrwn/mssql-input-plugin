@@ -74,7 +74,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>mapnik-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -88,7 +88,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>mapnik-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -104,7 +104,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>mapnik-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -122,7 +122,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>mapnik-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;_WINDOWS;BOOST_ALL_NO_LIB;BOOST_MSVC_ENABLE_2014_JUN_CTP;BOOST_VARIANT_DO_NOT_USE_VARIADIC_TEMPLATES;HAVE_JPEG;HAVE_PNG;HAVE_WEBP;HAVE_TIFF;MAPNIK_USE_PROJ4;BOOST_REGEX_HAS_ICU;GRID_RENDERER;SVG_RENDERER;_CLR_NATIVE_THREADS;MAPNIK_THREADSAFE;BIGINT;HAVE_LIBXML2;HAVE_CAIRO;LIBXML_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -139,7 +139,7 @@
     <ClCompile Include="test\run.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="mssql-input-plugin.vcxproj">
+    <ProjectReference Include="mssql.vcxproj">
       <Project>{24e04fa8-5faa-451e-a628-122e79a1e70e}</Project>
     </ProjectReference>
   </ItemGroup>
