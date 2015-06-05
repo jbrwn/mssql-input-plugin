@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mssql_connection.hpp">
+    <ClInclude Include="src\mssql_connection.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mssql_datasource.hpp">
+    <ClInclude Include="src\mssql_datasource.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mssql_featureset.hpp">
+    <ClInclude Include="src\mssql_featureset.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mssql_statement.hpp">
+    <ClInclude Include="src\mssql_statement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="odbc_exception.hpp">
+    <ClInclude Include="src\odbc_exception.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mssql_datasource.cpp">
+    <ClCompile Include="src\mssql_datasource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mssql_featureset.cpp">
+    <ClCompile Include="src\mssql_featureset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
