@@ -5,35 +5,39 @@
 #include <mapnik/datasource.hpp>
 #include <mapnik/datasource_cache.hpp>
 
-//icu
-#include <unicode/uclean.h>
+static std::string MSSQL_CONNECTION_STRING = (std::getenv("MSSQL_CONNECTION_STRING") == nullptr) ?
+    "Driver={SQL Server};Server=.;Database=mapnik_tmp_mssql_db;Trusted_Connection=Yes;" :
+    std::getenv("MSSQL_CONNECTION_STRING");
 
-TEST_CASE("mssql datasource") {
-    //This will be executed before each section
-    
-    SECTION("register plugin") 
+TEST_CASE("mssql") {
+
+    //register plugin
+    std::string mssql_plugin = "./mssql.input";
+    mapnik::datasource_cache::instance().register_datasource(mssql_plugin);
+
+    SECTION("is registered")
     {
-        std::string mssql_plugin = "./mssql.input";
-        REQUIRE(mapnik::datasource_cache::instance().register_datasource(mssql_plugin));
+        std::vector<std::string> plugins = mapnik::datasource_cache::instance().plugin_names();
+        std::string plugin_name = "mssql";
+        auto itr = std::find(plugins.begin(), plugins.end(), plugin_name);
+        REQUIRE(itr != plugins.end());
+    }
+
+    SECTION("connect")
+    {
+        mapnik::parameters p;
+        p["type"] = "mssql";
+        p["connection_string"] = MSSQL_CONNECTION_STRING;
+        p["table"] = "table1";
+        p["geometry_field"] = "geom";
+        p["srid"] = 4326;
+        p["extent"] = "-10,-10,10,10";
+        std::shared_ptr<mapnik::datasource> ds = mapnik::datasource_cache::instance().create(p);
     }
 }
 
-char * _connection_string = NULL;
-
 int main (int argc, char* const argv[])
 {
-    //get connection string
-    _connection_string = std::getenv("MSSQL_CONNECTION_STRING");
-    if (_connection_string == NULL)
-    {
-        _connection_string = "Driver={SQL Server};Server=.;Database=master;Trusted_Connection=Yes;";
-    }
-
-    //run tests
     int result = Catch::Session().run( argc, argv );
-
-    //clean up
-    // http://icu-project.org/apiref/icu4c/uclean_8h.html#a93f27d0ddc7c196a1da864763f2d8920
-    u_cleanup();
     return result;
 }
