@@ -8,8 +8,6 @@
 #include <mapnik/unicode.hpp>
 
 #include <memory>
-#include <locale>
-#include <codecvt>
 
 mssql_featureset::mssql_featureset(std::shared_ptr<mssql_statement> const& stmt,
                  mapnik::context_ptr const& ctx,

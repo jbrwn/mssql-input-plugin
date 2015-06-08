@@ -1,8 +1,6 @@
 #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
 
-#include <cstdlib>
-
 //mapnik
 #include <mapnik/datasource.hpp>
 #include <mapnik/datasource_cache.hpp>

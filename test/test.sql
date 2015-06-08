@@ -102,7 +102,7 @@ INSERT INTO [dbo].[table1]
            ,0x2A
            ,0x2A
            ,'BE62A766-2614-42F9-A26E-74DDB9065977'
-		   ,NULL
+           ,NULL
            ,GEOMETRY::STGeomFromText('POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))', 4326))
 GO
 
