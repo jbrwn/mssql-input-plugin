@@ -257,17 +257,7 @@ public:
         column_info& col = column_info_[i];
         if (col.len_or_ind != SQL_NULL_DATA)
         {
-            switch (col.c_type)
-            {
-            case SQL_C_CHAR:
-                value = sizeof(SQLCHAR) * (col.len_or_ind + 1);
-                break;
-            case SQL_C_WCHAR:
-                value = sizeof(SQLWCHAR) * (col.len_or_ind + 1);
-            default:
-                value = col.len_or_ind;
-                break;
-            }
+            value = col.len_or_ind;
         }
         return value;
     }

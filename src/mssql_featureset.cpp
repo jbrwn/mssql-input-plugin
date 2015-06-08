@@ -8,6 +8,8 @@
 #include <mapnik/unicode.hpp>
 
 #include <memory>
+#include <locale>
+#include <codecvt>
 
 mssql_featureset::mssql_featureset(std::shared_ptr<mssql_statement> const& stmt,
                  mapnik::context_ptr const& ctx,
@@ -16,7 +18,7 @@ mssql_featureset::mssql_featureset(std::shared_ptr<mssql_statement> const& stmt,
     ctx_(ctx),
     feature_id_(1),
     char_tr_(std::make_unique<mapnik::transcoder>(encoding)),
-    wchar_tr_(std::make_unique<mapnik::transcoder>("UCS-2"))
+    wchar_tr_(std::make_unique<mapnik::transcoder>("utf-16le"))
 {
 
 }
@@ -51,6 +53,8 @@ mapnik::feature_ptr mssql_featureset::next()
                     case -6: //TINYINT
                     case 5:  //SQL_SMALLINT
                     case 4:  //SQL_INTEGER
+                        feature->put(name, stmt_->get_int32(i));
+                        break;
                     case -5: //SQL_BIGINT
                         feature->put(name, stmt_->get_int64(i));
                         break;
