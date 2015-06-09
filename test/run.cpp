@@ -76,14 +76,17 @@ TEST_CASE("mssql") {
                 CHECK(1.25 == attr.to_double());
             }
 
-            ////dates and times 
-            //std::vector<std::string> datetimes { "_date","_datetime","_datetime2","_datetimeoffset","_smalldatetime","_time" };
-            //for (auto name : datetimes)
-            //{
-            //    mapnik::value attr = f1->get(name);
-            //    CHECK(attr.is<mapnik::value_unicode_string>());
-            //    CHECK("" == attr.to_string());
-            //}
+            //dates and times 
+            CHECK(f1->get("_date").is<mapnik::value_unicode_string>());
+            CHECK("2000-01-01" == f1->get("_date").to_string());
+            CHECK(f1->get("_datetime2").is<mapnik::value_unicode_string>());
+            CHECK("2000-01-01 00:00:00.0000000" == f1->get("_datetime2").to_string());
+            CHECK(f1->get("_datetime").is<mapnik::value_unicode_string>());
+            CHECK("2000-01-01 00:00:00.000" == f1->get("_datetime").to_string());
+            CHECK(f1->get("_datetimeoffset").is<mapnik::value_unicode_string>());
+            CHECK("2000-01-01 12:00:00.0000000 +01:00" == f1->get("_datetimeoffset").to_string());
+            CHECK(f1->get("_time").is<mapnik::value_unicode_string>());
+            CHECK("12:00:00.0000000" == f1->get("_time").to_string());
 
             //text
             std::vector<std::string> text { "_text","_varchar","_ntext","_nvarchar" };
@@ -94,14 +97,21 @@ TEST_CASE("mssql") {
                 CHECK("text" == attr.to_string());
             }
 
-            ////binary
-            //std::vector<std::string> binary { "_varbinary","_binary","_image" };
-            //for (auto name : binary)
-            //{
-            //    mapnik::value attr = f1->get(name);
-            //    CHECK(attr.is<mapnik::value_unicode_string>());
-            //    CHECK("" == attr.to_string());
-            //}
+            //binary
+            std::vector<std::string> binary { "_varbinary","_binary","_image" };
+            for (auto name : binary)
+            {
+                //binary not supported
+                CHECK(!f1->has_key(name));
+            }
+
+            //null
+            CHECK(f1->has_key("_null"));
+
+            //guid
+            mapnik::value _uniqueidentifier = f1->get("_uniqueidentifier");
+            CHECK(_uniqueidentifier.is<mapnik::value_unicode_string>());
+            CHECK("BE62A766-2614-42F9-A26E-74DDB9065977" == _uniqueidentifier.to_string());
 
             //test geom
             mapnik::geometry::geometry<double> geom = f1->get_geometry();
