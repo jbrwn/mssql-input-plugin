@@ -13,4 +13,4 @@ install:
 build:
   project: mssql.sln   
 test_script:
-- ps: .\$ENV:CONFIGURATION\$ENV:PLATFORM\run.exe
+- ps: .\$ENV:CONFIGURATION\test.exe
