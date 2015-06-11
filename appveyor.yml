@@ -9,6 +9,6 @@ platform:
 - x64
 install:
 - ps: $env:Path = "C:\Program Files (x86)\MSBuild\14.0\Bin;" + $ENV:PATH
-- ps: . .\boostrap.sp1
+- ps: . .\boostrap.ps1
 test_script:
 - ps: .\$ENV:CONFIGURATION\$ENV:PLATFORM\run.exe
