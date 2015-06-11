@@ -10,5 +10,7 @@ platform:
 install:
 - ps: $env:Path = "C:\Program Files (x86)\MSBuild\14.0\Bin;" + $ENV:PATH
 - ps: . .\bootstrap.ps1
+build:
+  project: mssql.sln   
 test_script:
 - ps: .\$ENV:CONFIGURATION\$ENV:PLATFORM\run.exe
