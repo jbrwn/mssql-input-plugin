@@ -14,5 +14,7 @@ build:
   project: mssql.sln   
 test_script:
 - ps: cd $ENV:CONFIGURATION
+- ps: ls
+- ps: get-childitem $ENV:
 - ps: .\test.exe --list-tests
 - ps: .\test.exe
