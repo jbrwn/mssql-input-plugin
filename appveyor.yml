@@ -7,6 +7,8 @@ configuration: Release
 platform:
 - x86
 - x64
+services:
+  - mssql2014
 install:
 - ps: $env:Path = "C:\Program Files (x86)\MSBuild\14.0\Bin;" + $ENV:PATH
 - ps: . .\bootstrap.ps1
