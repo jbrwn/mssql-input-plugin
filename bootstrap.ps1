@@ -7,5 +7,5 @@ if ($ENV:PLATFORM -eq $null)
 & 7z x .\mapnik-win-sdk.7z "-o$pwd"
 
 $MAPNIK_SDK = "$pwd\mapnik-sdk"
-$ENV:PATH = $MAPNIK_SDK + ";" + $ENV:Path
+$ENV:PATH = $MAPNIK_SDK\lib + ";" + $ENV:Path
 $ENV:ICU_DATA = "$MAPNIK_SDK\share\icu"
