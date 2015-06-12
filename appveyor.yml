@@ -13,4 +13,5 @@ install:
 build:
   project: mssql.sln   
 test_script:
-- ps: Invoke-Expression .\$ENV:CONFIGURATION\test.exe
+- ps: cd $ENV:CONFIGURATION
+- ps: .\test.exe
