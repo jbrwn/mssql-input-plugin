@@ -26,4 +26,5 @@ test_script:
 - ps: $sqlPw = "Password12!"
 - ps: sqlcmd -S "$sqlInstance" -i .\test\test.sql
 - ps: $ENV:MSSQL_CONNECTION_STRING = "Driver={SQL Server Native Client 11.0};Server=$sqlInstance;Database=mapnik_tmp_mssql_db;Uid=$sqlUser;Pwd=$sqlPw;"
-- ps: & ".\$ENV:PLATFORM\$ENV:CONFIGURATION\test.exe"
+- ps: cd "$ENV:PLATFORM\$ENV:CONFIGURATION"
+- ps: .\test.exe
