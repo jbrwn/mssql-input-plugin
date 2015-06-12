@@ -15,6 +15,6 @@ build:
 test_script:
 - ps: cd $ENV:CONFIGURATION
 - ps: Get-ChildItem .
-- ps: Get-ChildItem $Env:
+- ps: $Env:path
 - ps: .\test.exe --list-tests
 - ps: .\test.exe
