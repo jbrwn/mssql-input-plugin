@@ -13,8 +13,16 @@ install:
 build:
   project: mssql.sln   
 test_script:
-- ps: cd $ENV:CONFIGURATION
-- ps: Get-ChildItem .
-- ps: $Env:path
-- ps: .\test.exe --list-tests
-- ps: .\test.exe
+- ps: $MAPNIK_SDK = "$pwd\mapnik-sdk"
+- ps: $ENV:PATH = "$MAPNIK_SDK\lib" + ";" + $ENV:Path
+- ps: $ENV:PATH = "$MAPNIK_SDK\bin" + ";" + $ENV:Path
+- ps: $ENV:ICU_DATA = "$MAPNIK_SDK\share\icu"
+- ps: $ENV:PROJ_LIB = "$MAPNIK_SDK\share\proj"
+- ps: $ENV:GDAL_DATA = "$MAPNIK_SDK\share\gdal"
+- ps: $sqlInstance = "Server=(local)\SQL2014"
+- ps: $sqlUser = "sa"
+- ps: $sqlPw = "Password12!"
+- ps: sqlcmd -S "$sqlInstance" -i .\test\test.sql
+- ps: $ENV:MSSQL_CONNECTION_STRING = "Driver={SQL Server Native Client 11.0};Server=$sqlInstance;Database=mapnik_tmp_mssql_db;Uid=$sqlUser;Pwd=$sqlPw;"
+- ps: $ENV:PATH = "$ENV:PLATFORM\$ENV:CONFIGURATION" + ";" + $ENV:Path
+- ps: test.exe
