@@ -12,7 +12,7 @@ static std::string MSSQL_CONNECTION_STRING = (std::getenv("MSSQL_CONNECTION_STRI
 TEST_CASE("mssql") {
 
     //register plugin
-    std::string mssql_plugin = "./mssql.input";
+    std::string mssql_plugin = "src/mssql.input";
     mapnik::datasource_cache::instance().register_datasource(mssql_plugin);
 
     SECTION("is registered")
@@ -39,7 +39,7 @@ TEST_CASE("mssql") {
         REQUIRE(expected_extent == ds->envelope());
         mapnik::layer_descriptor ld = ds->get_descriptor();
         std::vector<mapnik::attribute_descriptor> attributes = ld.get_descriptors();
-        REQUIRE(25 == attributes.size());
+        CHECK(25 == attributes.size());
 
         SECTION("query features")
         {

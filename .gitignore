@@ -15,6 +15,10 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+src/*.exp
+src/*.input
+src/*.lib
+test/.*exe
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
@@ -158,3 +162,4 @@ $RECYCLE.BIN/
 
 #external libs
 mapnik-sdk/
+mapnik-win-sdk.7z

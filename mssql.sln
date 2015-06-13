@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mssql", "mssql.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test.vcxproj", "{E0011AA3-5E26-4AC4-BC77-C90FCD181731}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "benchmark", "benchmark.vcxproj", "{AA74B072-A5CB-47B5-BF13-4470D89FA01D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{E0011AA3-5E26-4AC4-BC77-C90FCD181731}.Release|x64.Build.0 = Release|x64
 		{E0011AA3-5E26-4AC4-BC77-C90FCD181731}.Release|x86.ActiveCfg = Release|Win32
 		{E0011AA3-5E26-4AC4-BC77-C90FCD181731}.Release|x86.Build.0 = Release|Win32
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Debug|x64.ActiveCfg = Debug|x64
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Debug|x64.Build.0 = Debug|x64
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Debug|x86.ActiveCfg = Debug|Win32
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Debug|x86.Build.0 = Debug|Win32
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Release|x64.ActiveCfg = Release|x64
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Release|x64.Build.0 = Release|x64
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Release|x86.ActiveCfg = Release|Win32
+		{AA74B072-A5CB-47B5-BF13-4470D89FA01D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

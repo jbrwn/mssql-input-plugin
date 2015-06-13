@@ -11,20 +11,13 @@ services:
   - mssql2014
 install:
 - ps: $env:Path = "C:\Program Files (x86)\MSBuild\14.0\Bin;" + $ENV:PATH
-- ps: . .\bootstrap.ps1
+- ps: .\bootstrap.ps1
 build:
   project: mssql.sln   
 test_script:
-- ps: $MAPNIK_SDK = "$pwd\mapnik-sdk"
-- ps: $ENV:PATH = "$MAPNIK_SDK\lib" + ";" + $ENV:Path
-- ps: $ENV:PATH = "$MAPNIK_SDK\bin" + ";" + $ENV:Path
-- ps: $ENV:ICU_DATA = "$MAPNIK_SDK\share\icu"
-- ps: $ENV:PROJ_LIB = "$MAPNIK_SDK\share\proj"
-- ps: $ENV:GDAL_DATA = "$MAPNIK_SDK\share\gdal"
 - ps: $sqlInstance = "(local)\SQL2014"
 - ps: $sqlUser = "sa"
 - ps: $sqlPw = "Password12!"
 - ps: sqlcmd -S "$sqlInstance" -i .\test\test.sql
 - ps: $ENV:MSSQL_CONNECTION_STRING = "Driver={SQL Server Native Client 11.0};Server=$sqlInstance;Database=mapnik_tmp_mssql_db;Uid=$sqlUser;Pwd=$sqlPw;"
-- ps: cd "$ENV:PLATFORM\$ENV:CONFIGURATION"
-- ps: .\test.exe
+- ps: .\test.ps1
