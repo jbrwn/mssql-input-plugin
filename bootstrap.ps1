@@ -1,4 +1,5 @@
-if ($ENV:PLATFORM -eq $null) 
+$platform = $ENV:PLATFORM
+if ($platform -eq $null) 
 {
 	$platform = "x64"
 }
