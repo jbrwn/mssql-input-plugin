@@ -87,19 +87,33 @@ mssql_datasource::mssql_datasource(parameters const& params)
         case 7:  //SQL_REAL
         case 2:  //SQL_NUMERIC
             desc_.add_descriptor(mapnik::attribute_descriptor(name, mapnik::Double));
-        case -2: //SQL_BINARY
-        case -3: //SQL_VARBINARY
-        case -4: //SQL_LONGVARBINARY
-            //not supported
             break;
-        default:
-            //everything else maps to string
+        case -8:    //SQL_WCHAR:
+        case -9:    //SQL_WVARCHAR:
+        case -10:   //SQL_WLONGVARCHAR:
+        case 1:     //SQL_CHAR:
+        case 12:    //SQL_VARCHAR:
+        case -1:    //SQL_LONGVARCHAR:
+        case -11:   //SQL_GUID:
+        case 9:     //SQL_DATE:
+        case 91:    //SQL_TYPE_DATE:
+        case 11:    //SQL_TIMESTAMP:
+        case 93:    //SQL_TYPE_TIMESTAMP:
+        case -154:  //SQL_SS_TIME2:
+        case -155:  //SQL_SS_TIMESTAMPOFFSET:
             desc_.add_descriptor(mapnik::attribute_descriptor(name, mapnik::String));
+            break;
+        default: //not supported
+            //SQL_BINARY
+            //SQL_VARBINARY
+            //SQL_LONGVARBINARY
+            //SQL_SS_VARIANT
+            //SQL_SS_UDT
+            //SQL_SS_XML
+            //SQL_SS_TABLE
             break;
         }
     }
-    
-
 }
 
 mssql_datasource::~mssql_datasource() { }

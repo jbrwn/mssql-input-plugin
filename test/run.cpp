@@ -6,7 +6,7 @@
 #include <mapnik/datasource_cache.hpp>
 
 static std::string MSSQL_CONNECTION_STRING = (std::getenv("MSSQL_CONNECTION_STRING") == nullptr) ?
-    "Driver={SQL Server};Server=.;Database=mapnik_tmp_mssql_db;Trusted_Connection=Yes;" :
+    "Driver={SQL Server Native Client 11.0};Server=.;Database=mapnik_tmp_mssql_db;Trusted_Connection=Yes;" :
     std::getenv("MSSQL_CONNECTION_STRING");
 
 TEST_CASE("mssql") {

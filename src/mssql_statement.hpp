@@ -13,6 +13,15 @@
 #include <string>
 #include <vector>
 
+
+//SQL Server specfic defines
+#define SQL_SS_VARIANT -150
+#define SQL_SS_UDT -151
+#define SQL_SS_XML -152
+#define SQL_SS_TABLE -153
+#define SQL_SS_TIME2 -154
+#define SQL_SS_TIMESTAMPOFFSET -155
+
 class mssql_statement
 {
     struct column_info
@@ -107,9 +116,19 @@ public:
             switch (col.sql_type)
             {
                 case SQL_WCHAR:
-                case SQL_WVARCHAR:
                     col.c_type = SQL_C_WCHAR;
                     col.c_len = sizeof(SQLWCHAR) * (col.sql_size + 1);
+                case SQL_WVARCHAR:
+                    col.c_type = SQL_C_WCHAR;
+                    if (col.sql_size == 0) //nvarchar(max)
+                    {
+                        col.lob = true;
+                        col.c_len = 1024;
+                    }
+                    else
+                    {
+                        col.c_len = sizeof(SQLWCHAR) * (col.sql_size + 1);
+                    }
                     break;
                 case SQL_WLONGVARCHAR:
                     col.c_type = SQL_C_WCHAR;
@@ -117,9 +136,19 @@ public:
                     col.c_len = 1024;
                     break;
                 case SQL_CHAR:
-                case SQL_VARCHAR:
                     col.c_type = SQL_C_CHAR;
                     col.c_len = sizeof(SQLCHAR) * (col.sql_size + 1);
+                case SQL_VARCHAR:
+                    col.c_type = SQL_C_CHAR;
+                    if (col.sql_size == 0) //varchar(max)
+                    {
+                        col.lob = true;
+                        col.c_len = 1024;
+                    }
+                    else
+                    {
+                        col.c_len = sizeof(SQLCHAR) * (col.sql_size + 1);
+                    }
                     break;
                 case SQL_LONGVARCHAR:
                     col.c_type = SQL_C_CHAR;
@@ -127,9 +156,20 @@ public:
                     col.c_len = 1024;
                     break;
                 case SQL_BINARY:
-                case SQL_VARBINARY:
                     col.c_type = SQL_C_BINARY;
                     col.c_len = col.sql_size;
+                    break;
+                case SQL_VARBINARY:
+                    col.c_type = SQL_C_BINARY;
+                    if (col.sql_size == 0) //varbinary(max)
+                    {
+                        col.lob = true;
+                        col.c_len = 1024;
+                    }
+                    else
+                    {
+                        col.c_len = col.sql_size;
+                    }
                     break;
                 case SQL_LONGVARBINARY:
                     col.c_type = SQL_C_BINARY;
@@ -155,6 +195,18 @@ public:
                     col.c_type = SQL_C_DOUBLE;
                     col.c_len = sizeof(SQLDOUBLE);
                     break;
+                // TO DO: better conversions for known SQL types
+                case SQL_GUID:
+                case SQL_DATE:
+                case SQL_TYPE_DATE:
+                case SQL_TIMESTAMP:
+                case SQL_TYPE_TIMESTAMP:
+                case SQL_SS_VARIANT:
+                case SQL_SS_UDT:
+                case SQL_SS_XML:
+                case SQL_SS_TABLE:
+                case SQL_SS_TIME2:
+                case SQL_SS_TIMESTAMPOFFSET:
                 default:
                     col.c_type = SQL_C_CHAR;
                     col.c_len = 128;
